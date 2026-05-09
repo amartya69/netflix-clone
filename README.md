@@ -6,3 +6,17 @@ This project replicates the core UI and functionality of Netflix, including movi
 🌐 Live Demo
 
 👉 Coming Soon
+
+
+✨ Features
+🔐 User Authentication
+🎥 Browse Trending Movies
+🔍 Search Movies
+📺 Watch Trailers
+❤️ Add to Watchlist
+🌙 Modern Dark UI
+📱 Fully Responsive Design
+⚡ Fast Performance with Vite
+🎬 TMDB API Integration
+🗂 Movie Categories
+🔥 Dynamic Hero Banner
