@@ -27,3 +27,9 @@ React.js
 Vite
 Axios
 CSS3
+
+Backend
+Node.js
+Express.js
+MongoDB
+Mongoose
