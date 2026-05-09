@@ -20,3 +20,10 @@ This project replicates the core UI and functionality of Netflix, including movi
 🎬 TMDB API Integration
 🗂 Movie Categories
 🔥 Dynamic Hero Banner
+
+🛠 Tech Stack
+Frontend
+React.js
+Vite
+Axios
+CSS3
