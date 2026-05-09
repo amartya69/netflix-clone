@@ -38,3 +38,7 @@ Tools & Deployment
 Git & GitHub
 Vercel
 Render
+
+
+📸 Screenshots
+Home Page
