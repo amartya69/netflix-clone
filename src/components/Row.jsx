@@ -2,24 +2,32 @@ import { useEffect, useState } from "react";
 import axios from "../utils/api";
 import MovieModal from "./MovieModal";
 
+const PLACEHOLDER_IMG =
+  "https://via.placeholder.com/300x450?text=No+Image";
+
 function Row({ title, fetchUrl, movies: propMovies }) {
-  const [movies, setMovies] = useState([]);          // ✅ MISSING STATE FIXED
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // If movies are passed from search
-    if (propMovies) {
+    // If movies are coming from Search, render directly — no loading/error states
+    if (propMovies && propMovies.length > 0) {
       setMovies(propMovies);
       return;
     }
 
-    // Fetch movies from API
+    // Fetch from API
     async function fetchData() {
       try {
+        setLoading(true);
         const request = await axios.get(fetchUrl);
         setMovies(request.data?.Search || []);
-      } catch (error) {
-        console.error("Row fetch error:", error);
+      } catch (err) {
+        setError("Failed to load movies.");
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -30,38 +38,52 @@ function Row({ title, fetchUrl, movies: propMovies }) {
     <div style={{ color: "white", marginLeft: "20px" }}>
       <h2>{title}</h2>
 
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {!loading && !error && (
       <div
         style={{
           display: "flex",
-          overflowX: "scroll",
+          overflowX: "auto",
           padding: "20px 0",
         }}
       >
-        {movies.map((movie) =>
-          movie.Poster !== "N/A" ? (
-            <img
-              key={movie.imdbID}
-              src={movie.Poster}
-              alt={movie.Title}
-              style={{
-                width: "180px",
-                marginRight: "10px",
-                cursor: "pointer",
-                transition: "transform 0.3s",
-              }}
-              onClick={() => setSelectedMovie(movie)}   // ✅ CLICK HANDLER
-              onMouseOver={(e) =>
-                (e.currentTarget.style.transform = "scale(1.08)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
-            />
-          ) : null
+        {movies.length === 0 && (
+          <p style={{ color: "gray" }}>No movies available</p>
         )}
-      </div>
 
-      {/* Movie Details Popup */}
+        {movies.map((movie) => (
+          <img
+            key={movie.imdbID}
+            src={
+              movie.Poster && movie.Poster !== "N/A"
+                ? movie.Poster
+                : PLACEHOLDER_IMG
+            }
+            alt={movie.Title}
+            style={{
+              width: "180px",
+              height: "270px",
+              marginRight: "12px",
+              cursor: "pointer",
+              objectFit: "cover",
+              borderRadius: "4px",
+              transition: "transform 0.3s",
+            }}
+            onClick={() => setSelectedMovie(movie)}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.transform = "scale(1.08)")
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.transform = "scale(1)")
+            }
+          />
+        ))}
+      </div>
+      )}
+
+      {/* Movie Details Modal */}
       <MovieModal
         movie={selectedMovie}
         onClose={() => setSelectedMovie(null)}

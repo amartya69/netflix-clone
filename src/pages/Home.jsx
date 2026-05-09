@@ -26,25 +26,26 @@ function Home() {
 
       <SearchBar onSearch={handleSearch} />
 
+      {/* Search Results */}
       {searchQuery && (
-  <Row
-    title={`Search Results for "${searchQuery}"`}
-    fetchUrl={null}
-    movies={searchResults}
-  />
-)}
+        <Row
+          title={`Search Results for "${searchQuery}"`}
+          fetchUrl={null}
+          movies={searchResults}
+        />
+      )}
 
-{!searchQuery && (
-  <>
-    <Banner />
-    <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-    <Row title="Marvel Movies" fetchUrl={requests.fetchMarvel} />
-    <Row title="Action Movies" fetchUrl={requests.fetchAction} />
-    <Row title="Comedy Movies" fetchUrl={requests.fetchComedy} />
-    <Row title="Drama Movies" fetchUrl={requests.fetchDrama} />
-  </>
-)}
-
+      {/* Default Home Content */}
+      {!searchQuery && (
+        <>
+          <Banner />
+          <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
+          <Row title="Marvel Movies" fetchUrl={requests.fetchMarvel} />
+          <Row title="Action Movies" fetchUrl={requests.fetchAction} />
+          <Row title="Comedy Movies" fetchUrl={requests.fetchComedy} />
+          <Row title="Drama Movies" fetchUrl={requests.fetchDrama} />
+        </>
+      )}
     </div>
   );
 }
