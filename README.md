@@ -33,3 +33,8 @@ Node.js
 Express.js
 MongoDB
 Mongoose
+
+Tools & Deployment
+Git & GitHub
+Vercel
+Render
