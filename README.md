@@ -62,3 +62,6 @@ Home Page
 
 Navigate to Project Directory
 cd netflix-clone
+
+Install Dependencies
+npm install
