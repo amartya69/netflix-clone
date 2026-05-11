@@ -57,6 +57,7 @@ Render
 
 Clone the Repository
 git clone https://github.com/your-username/netflix-clone.git
+
 📸 Screenshots
 Home Page
 
@@ -68,3 +69,8 @@ npm install
 
 Start Development Server
 npm start
+
+
+Application will run on:
+
+http://localhost:3000
