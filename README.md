@@ -34,6 +34,22 @@ Express.js
 MongoDB
 Mongoose
 
+Project Structure
+src/
+│
+├── components/
+│   ├── header/
+│   ├── home/
+│   ├── login/
+│   ├── nav/
+│   └── row/
+│
+├── firebase/
+│   └── firebase.js
+│
+├── App.js
+└── index.js
+
 Tools & Deployment
 Git & GitHub
 Vercel
