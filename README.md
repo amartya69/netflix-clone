@@ -55,6 +55,7 @@ Git & GitHub
 Vercel
 Render
 
-
+Clone the Repository
+git clone https://github.com/your-username/netflix-clone.git
 📸 Screenshots
 Home Page
