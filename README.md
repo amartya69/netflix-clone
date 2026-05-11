@@ -59,3 +59,6 @@ Clone the Repository
 git clone https://github.com/your-username/netflix-clone.git
 📸 Screenshots
 Home Page
+
+Navigate to Project Directory
+cd netflix-clone
