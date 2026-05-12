@@ -66,14 +66,3 @@ cd netflix-clone
 
 Install Dependencies
 npm install
-
-
-
-
-Start Development Server
-npm start
-
-
-Application will run on:
-
-http://localhost:3000
